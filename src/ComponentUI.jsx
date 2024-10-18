@@ -1,12 +1,15 @@
 import OrderForm from './OrderForm'
 import HeaderImg from './assets/icon-5577198_1280.png'
+import './App.css'
 
 function ComponentUI() {
 
   return(
     <div>
-      <img src={HeaderImg} alt="Header"  />
-      <h1>Welcome to My Application</h1>
+      <header className='component-header'>
+        <img src={HeaderImg} alt="Header"  />
+        <h1>Welcome to My Application</h1>
+      </header>
       <OrderForm/>
     </div>
   )
