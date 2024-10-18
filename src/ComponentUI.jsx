@@ -8,7 +8,7 @@ function ComponentUI() {
     <div>
       <header className='component-header'>
         <img src={HeaderImg} alt="Header"  />
-        <h1>Welcome to My Application</h1>
+        <h1>Welcome to product page</h1>
       </header>
       <OrderForm/>
     </div>
