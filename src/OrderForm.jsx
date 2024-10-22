@@ -10,13 +10,17 @@ function OrderForm() {
   return (
     <div>
       <h2>Select product</h2>
-      <p>Product:</p>
-      <select value={selectedProduct} onChange={e => setSelectedProduct(e.target.value)}>
-        {
-          products.map(p => <option key={p} value={p}>{p}</option>)
-        }
-      </select>
-      <p>Quantity:</p><button>+</button><button>-</button>
+      <div className='row'>
+        <p>Product:</p>
+        <select value={selectedProduct} onChange={e => setSelectedProduct(e.target.value)}>
+          {
+            products.map(p => <option key={p} value={p}>{p}</option>)
+          }
+        </select>
+      </div>
+      <div className='row'>
+        <p>Quantity:</p><button>+</button><button>-</button>
+      </div>
       <OrderInfo />
     </div>
   )
