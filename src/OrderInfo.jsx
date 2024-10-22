@@ -1,4 +1,4 @@
-function OrderInfo() {
+function OrderInfo({ productName, productPrice, quantity }) {
   
   return(
     <div>
