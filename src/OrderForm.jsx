@@ -6,6 +6,21 @@ function OrderForm() {
   const [products, setProducts] = useState(['BenQ PD3220U', 'Huawei MateView', 'BenQ PD3420Q', 'Dell U2719DC'])
   const [selectedProduct, setSelectedProduct] = useState('')
   const [productPrice, setProductPrice] = (['1 289€', '699€', '899€', '535€'])
+  const [quantity, setQuantity] = useState(0)
+
+  function add(){
+    setQuantity(prev=> prev+1)
+  }
+
+  function subtract(){
+    setQuantity(prev=> {
+      if (prev > 0) {
+        return prev - 1
+      } else {
+        return 0
+      }
+    })
+  }
 
   return (
     <div>
@@ -19,7 +34,7 @@ function OrderForm() {
         </select>
       </div>
       <div className='row'>
-        <p>Quantity:</p><button>+</button><button>-</button>
+        <p>Quantity:</p><button onClick={subtract}>-</button>{quantity}<button onClick={add}>+</button>
       </div>
       <OrderInfo />
     </div>
