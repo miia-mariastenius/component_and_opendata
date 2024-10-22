@@ -20,15 +20,17 @@ function OrderForm() {
     <div>
       <h2>Select product</h2>
       <div className='row'>
-        <p>Product:</p>
-        <select value={selectedProduct} onChange={handleSelectChange}>
-          {
-            products.map((product, index) => (
-              <option key={index} value={index}>
-            {product} ({prices[index]})
-          </option>
-          ))}
-        </select>
+        <div className='select'>
+          <p>Product:</p>
+          <select value={selectedProduct} onChange={handleSelectChange}>
+            {
+              products.map((product, index) => (
+                <option key={index} value={index}>
+                  {product} ({prices[index]})
+                </option>
+              ))}
+          </select>
+        </div>
       </div>
       <div className='row'>
         <p>Quantity:</p><button onClick={subtract}>-</button>{quantity}<button onClick={add}>+</button>
