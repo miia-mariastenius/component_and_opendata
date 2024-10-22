@@ -16,3 +16,8 @@
   align-items: center;
   height: 30px;
 }
+
+.order-table, th, tr, td {
+  border-collapse: collapse;
+  border: 1px, solid;
+}
