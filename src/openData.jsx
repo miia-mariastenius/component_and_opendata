@@ -48,6 +48,18 @@ function OpenData() {
   }, [selectedCategory])
 
   // Update selected meal to site
+  useEffect(() => {
+    if (selectedMeal) {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${selectedMeal}`)
+      .then(resp => {
+        const mealData = resp.data.meals[0]
+        setMeal(mealData.strMeal)
+        setMealType(mealData.strCategory)
+        setRecipe(mealData.strInstructions)
+        setMealImg(mealData.strMealThumb)
+      })
+    }
+  },[selectedMeal])
 
   return (
     <div className="container">
