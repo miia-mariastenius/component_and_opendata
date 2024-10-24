@@ -1,3 +1,20 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.random-meal {
+  flex: 2;
+  padding: 20px;
+}
+
+.search {
+  text-align: right;
+  flex: 1;
+  padding: 20px;
+}
+
 .title {
   display: inline-block;
   margin: 0;
@@ -15,6 +32,5 @@
 }
 
 .recipe {
-  width: 800px;
   text-align:justify;
 }
