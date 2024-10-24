@@ -4,11 +4,17 @@ import './openData.css'
 
 function OpenData() {
 
+  // Random meal
   const [meal, setMeal] = useState('')
   const [mealType, setMealType] = useState('')
   const [recipe, setRecipe] = useState('')
   const [mealImg, setMealImg] = useState(null)
 
+  // Searched meal
+  const [categories, setCategories] = useState([])
+
+
+  //Random meal fetch
   useEffect(() => {
     axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
       .then(resp => {
@@ -18,6 +24,14 @@ function OpenData() {
         setRecipe(mealData.strInstructions)
         setMealImg(mealData.strMealThumb)
       })
+  }, [])
+
+  // Categories for dropdown
+  useEffect(() => {
+    axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+    .then(resp => {
+      setCategories(resp.data.categories)
+    })
   }, [])
 
   return (
@@ -32,7 +46,16 @@ function OpenData() {
       <div className="search">
         <h2>Search for a meal</h2>
         <p>Category:</p>
-        <select></select>
+        <select onChange={(e) => setCategories(e.target.value)}>
+          <option value="">Select a Category</option>
+          {
+            categories.map(c => (
+              <option key={c.idCategory} value={c.strCategory}>
+                {c.strCategory}
+              </option>
+            ))
+          }
+        </select>
       </div>
     </div>
   )
