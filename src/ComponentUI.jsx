@@ -1,6 +1,6 @@
 import OrderForm from './OrderForm'
 import HeaderImg from './assets/icon-5577198_1280.png'
-import './App.css'
+import './Component.css'
 
 function ComponentUI() {
 
